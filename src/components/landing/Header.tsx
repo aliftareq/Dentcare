@@ -5,43 +5,49 @@ import { Button } from "../ui/button";
 
 const Header = () => {
   return (
-    <nav className="fixed top-0 right-0 left-0 z-50 px-6 py-2 border-b border-border/50 bg-background/80 backdrop-blur-md h-16">
-      <div className="max-w-6xl mx-auto flex justify-between items-center">
+    <nav className="fixed inset-x-0 top-0 z-50 h-16 border-b border-border/50 bg-background/80 backdrop-blur-md">
+      <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src={"/logo.png"}
+            src="/logo.png"
             alt="DentWise Logo"
-            width={32}
-            height={32}
-            className="w-11"
+            width={44}
+            height={44}
+            className="h-11 w-11 object-contain"
+            priority
           />
-          <span className="font-semibold text-lg">DentWise</span>
+          <span className="text-lg font-semibold">Dentcare</span>
         </Link>
 
+        {/* Nav links */}
         <div className="hidden md:flex items-center gap-8">
-          <a href="#" className="text-muted-foreground hover:text-foreground">
+          <a href="#how-it-works" className="text-muted-foreground hover:text-foreground">
             How it Works
           </a>
-          <a href="#" className="text-muted-foreground hover:text-foreground">
+          <a href="#pricing" className="text-muted-foreground hover:text-foreground">
             Pricing
           </a>
-          <a href="#" className="text-muted-foreground hover:text-foreground">
+          <a href="#about" className="text-muted-foreground hover:text-foreground">
             About
           </a>
         </div>
 
+        {/* Auth buttons */}
         <div className="flex items-center gap-3">
           <SignInButton mode="modal">
-            <Button variant={"ghost"} size={"sm"}>
+            <Button variant="ghost" size="sm">
               Login
             </Button>
           </SignInButton>
+
           <SignUpButton mode="modal">
-            <Button size={"sm"}>Sign Up</Button>
+            <Button size="sm">Sign Up</Button>
           </SignUpButton>
         </div>
       </div>
     </nav>
   );
 };
+
 export default Header;
