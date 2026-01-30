@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 
 export default function Home() {
   return (
-    <Button>Click Me.</Button>
+    <div>
+      <h1>Home page</h1>
+    </div>
   );
 }
