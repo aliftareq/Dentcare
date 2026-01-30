@@ -66,9 +66,11 @@ function CTA() {
           <div className="relative flex justify-center lg:justify-end">
             <div className="relative">
               {/* Floating Badge */}
-              <div className=" absolute -top-4 left-1/2 -translate-x-1/2 md:left-4 md:translate-x-0 bg-linear-to-r 
+              <div
+                className=" absolute -top-4 left-1/2 -translate-x-1/2 md:left-4 md:translate-x-0 bg-linear-to-r 
               from-green-500/90 to-emerald-500/90 backdrop-blur-sm text-white px-3 py-1 
-              rounded-full text-xs font-medium shadow-lg z-10">
+              rounded-full text-xs font-medium shadow-lg z-10"
+              >
                 <div className="flex items-center gap-1">
                   <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></div>
                   Available 24/7
@@ -82,7 +84,7 @@ function CTA() {
 
                 <Image
                   src="/cta.png"
-                  alt="DentWise AI Assistant"
+                  alt="Dentcare AI Assistant"
                   width={300}
                   height={300}
                   className="relative w-80 h-auto drop-shadow-xl hover:scale-105 transition-transform duration-500"

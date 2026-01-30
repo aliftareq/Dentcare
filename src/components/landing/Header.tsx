@@ -11,7 +11,7 @@ const Header = () => {
         <Link href="/" className="flex items-center gap-2">
           <Image
             src="/logo.png"
-            alt="DentWise Logo"
+            alt="Dentcare Logo"
             width={44}
             height={44}
             className="h-11 w-11 object-contain"
@@ -22,13 +22,22 @@ const Header = () => {
 
         {/* Nav links */}
         <div className="hidden md:flex items-center gap-8">
-          <a href="#how-it-works" className="text-muted-foreground hover:text-foreground">
+          <a
+            href="#how-it-works"
+            className="text-muted-foreground hover:text-foreground"
+          >
             How it Works
           </a>
-          <a href="#pricing" className="text-muted-foreground hover:text-foreground">
+          <a
+            href="#pricing"
+            className="text-muted-foreground hover:text-foreground"
+          >
             Pricing
           </a>
-          <a href="#about" className="text-muted-foreground hover:text-foreground">
+          <a
+            href="#about"
+            className="text-muted-foreground hover:text-foreground"
+          >
             About
           </a>
         </div>
