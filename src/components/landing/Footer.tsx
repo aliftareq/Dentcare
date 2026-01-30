@@ -3,10 +3,10 @@ import Image from "next/image";
 function Footer() {
   return (
     <footer className="px-6 py-12 border-t bg-muted/30">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto text-center lg:text-left">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
+            <div className="flex justify-center items-center gap-2">
               <Image
                 src="/logo.png"
                 alt="Dentcare Logo"
@@ -16,7 +16,7 @@ function Footer() {
               />
               <span className="font-semibold text-lg">Dentcare</span>
             </div>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground text-center">
               AI-powered dental assistance that actually helps.
             </p>
           </div>
@@ -87,7 +87,7 @@ function Footer() {
 
         <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
           <p>
-            &copy; 2024 Dentcare. Built for real people with real dental
+            &copy; 2025 Dentcare. Built for real people with real dental
             questions.
           </p>
         </div>
