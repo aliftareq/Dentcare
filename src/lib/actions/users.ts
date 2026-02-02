@@ -13,11 +13,11 @@ export async function syncUser() {
 
     const dbUser = await prisma.user.create({
       data: {
-        clerkId: user.id,
-        firstName: user.firstName,
-        lastName: user.lastName,
-        email: user.emailAddresses[0].emailAddress,
-        phone: user.phoneNumbers[0]?.phoneNumber,
+        clerkId: user?.id,
+        firstName: user?.firstName,
+        lastName: user?.lastName,
+        email: user?.emailAddresses[0]?.emailAddress,
+        phone: user?.phoneNumbers[0]?.phoneNumber,
       },
     });
 
