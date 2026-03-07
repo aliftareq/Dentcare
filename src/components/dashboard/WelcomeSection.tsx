@@ -5,7 +5,8 @@ export default async function WelcomeSection() {
   const user = await currentUser();
 
   return (
-    <div className="relative z-10 
+    <div
+      className="relative z-10 
       flex flex-col md:flex-row 
       items-center justify-center md:justify-between 
       text-center md:text-left
@@ -30,8 +31,8 @@ export default async function WelcomeSection() {
             {new Date().getHours() < 12
               ? "morning"
               : new Date().getHours() < 18
-              ? "afternoon"
-              : "evening"}
+                ? "afternoon"
+                : "evening"}
             , {user?.firstName}!
           </h1>
 
@@ -46,7 +47,7 @@ export default async function WelcomeSection() {
       <div className="hidden lg:flex items-center justify-center size-32 bg-linear-to-br from-primary/20 to-primary/10 rounded-full mt-6 md:mt-0">
         <Image
           src="/logo.png"
-          alt="DentWise"
+          alt="Dentcare"
           width={64}
           height={64}
           className="w-16 h-16"

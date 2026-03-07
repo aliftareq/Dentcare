@@ -1,5 +1,11 @@
 import { useAvailableDoctors } from "@/hooks/use-doctors";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "../ui/card";
 import Image from "next/image";
 import { MapPinIcon, PhoneIcon, StarIcon } from "lucide-react";
 import { Badge } from "../ui/badge";
@@ -70,14 +76,15 @@ function DoctorSelectionStep({
             <CardContent className="space-y-3">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <MapPinIcon className="w-4 h-4" />
-                <span>DentWise</span>
+                <span>Dentcare</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <PhoneIcon className="w-4 h-4" />
                 <span>{dentist.phone}</span>
               </div>
               <p className="text-sm text-muted-foreground">
-                {dentist.bio || "Experienced dental professional providing quality care."}
+                {dentist.bio ||
+                  "Experienced dental professional providing quality care."}
               </p>
               <Badge variant="secondary">Licensed Professional</Badge>
             </CardContent>

@@ -1,6 +1,6 @@
 "use client";
 
-// import { AppointmentConfirmationModal } from "@/components/appointments/AppointmentConfirmationModal";
+import { AppointmentConfirmationModal } from "@/components/appointments/AppointmentConfirmationModal";
 import BookingConfirmationStep from "@/components/appointments/BookingConfirmationStep";
 import DoctorSelectionStep from "@/components/appointments/DoctorSelectionStep";
 import ProgressSteps from "@/components/appointments/ProgressSteps";
@@ -140,7 +140,7 @@ function AppointmentsPage() {
         )}
       </div>
 
-      {/* {bookedAppointment && (
+      {bookedAppointment && (
         <AppointmentConfirmationModal
           open={showConfirmationModal}
           onOpenChange={setShowConfirmationModal}
@@ -151,7 +151,7 @@ function AppointmentsPage() {
             userEmail: bookedAppointment.patientEmail,
           }}
         />
-      )} */}
+      )}
 
       {/* SHOW EXISTING APPOINTMENTS FOR THE CURRENT USER */}
       {userAppointments.length > 0 && (
