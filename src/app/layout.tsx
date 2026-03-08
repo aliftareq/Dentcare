@@ -42,8 +42,7 @@ export default function RootLayout({
       >
         <html lang="en">
           <body
-            className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}
-          >
+            className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}>
             <Toaster />
             <UserSync />
             {children}
