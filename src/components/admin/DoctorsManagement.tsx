@@ -43,17 +43,17 @@ function DoctorsManagement() {
       <Card className="mb-12">
         {/* Header: stack on mobile, row on md+ */}
         <CardHeader className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <div className="min-w-0">
-            <CardTitle className="flex items-center gap-2">
+          <div className="min-w-0 flex flex-col items-center md:items-start text-center md:text-left">
+            <CardTitle className="flex flex-col md:flex-row items-center gap-2">
               <StethoscopeIcon className="size-5 text-primary" />
-              Doctors Management
+              <span>Doctors Management</span>
             </CardTitle>
+
             <CardDescription>
               Manage and oversee all doctors in your practice
             </CardDescription>
           </div>
 
-          {/* Button full-width on mobile, normal on md+ */}
           <Button
             onClick={() => setIsAddDialogOpen(true)}
             className="w-full md:w-auto bg-linear-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary"

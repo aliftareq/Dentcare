@@ -6,11 +6,13 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function generateAvatar(name: string, gender: "MALE" | "FEMALE") {
-  const username = name.replace(/\s+/g, "").toLowerCase();
-  const base = "https://avatar.iran.liara.run/public";
-  if (gender === "FEMALE") return `${base}/girl?username=${username}`;
-  // default to boy
-  return `${base}/boy?username=${username}`;
+  const seed = name.replace(/\s+/g, "").toLowerCase();
+
+  if (gender === "FEMALE") {
+    return `https://api.dicebear.com/9.x/personas/svg?seed=${seed}&hair=bobBangs,bobCut,long,curlyBun,straightBun,pigtails&facialHairProbability=0&clothing=blazerAndShirt,blazerAndSweater&eyes=happy,open&mouth=smile&body=rounded`;
+  }
+
+  return `https://api.dicebear.com/9.x/personas/svg?seed=${seed}&hair=shortCombover,shortComboverChops,fade,buzzcut&facialHairProbability=0&clothing=blazerAndShirt,blazerAndSweater&eyes=happy,open&mouth=smile,smirk&body=rounded`;
 }
 
 export const formatPhoneNumber = (value: string) => {

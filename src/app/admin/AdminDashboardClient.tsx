@@ -49,28 +49,29 @@ function AdminDashboardClient() {
 
       <div className="max-w-7xl mx-auto px-6 py-8 pt-24">
         {/* ADMIN WELCOME SECTION */}
-        <div className="mb-12 flex items-center justify-between bg-linear-to-br from-primary/10 via-primary/5 to-background rounded-3xl p-8 border border-primary/20">
-          <div className="space-y-4">
+        <div className="mb-12 flex flex-col md:flex-row items-center md:items-start justify-between text-center md:text-left bg-linear-to-br from-primary/10 via-primary/5 to-background rounded-3xl p-8 border border-primary/20 gap-6">
+          <div className="space-y-4 flex flex-col items-center md:items-start">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 rounded-full border border-primary/20">
               <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
               <span className="text-sm font-medium text-primary">
                 Admin Dashboard
               </span>
             </div>
+
             <div>
-              <h1 className="text-4xl font-bold mb-2">
+              <h1 className="text-3xl md:text-4xl font-bold mb-2">
                 Welcome back, {user?.firstName || "Admin"}!
               </h1>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground max-w-md mx-auto md:mx-0">
                 Manage doctors, oversee appointments, and monitor your dental
                 practice performance.
               </p>
             </div>
           </div>
 
-          <div className="hidden lg:block">
-            <div className="w-32 h-32 bg-linear-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center">
-              <SettingsIcon className="w-16 h-16 text-primary" />
+          <div className="hidden md:flex justify-center md:justify-end">
+            <div className="w-28 h-28 md:w-32 md:h-32 bg-linear-to-br from-primary/20 to-primary/10 rounded-full flex items-center justify-center">
+              <SettingsIcon className="w-12 h-12 md:w-16 md:h-16 text-primary" />
             </div>
           </div>
         </div>
