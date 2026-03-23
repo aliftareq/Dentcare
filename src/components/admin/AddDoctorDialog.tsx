@@ -11,9 +11,16 @@ import {
 } from "../ui/dialog";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
 import { Button } from "../ui/button";
 import { formatPhoneNumber } from "@/lib/utils";
+import ImageUpload from "../ImageUpload";
 
 interface AddDoctorDialogProps {
   isOpen: boolean;
@@ -30,6 +37,10 @@ function AddDoctorDialog({ isOpen, onClose }: AddDoctorDialogProps) {
     isActive: true,
   });
 
+  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [uploadedImageUrl, setUploadedImageUrl] = useState("");
+  const [imageLoadingState, setImageLoadingState] = useState(false);
+
   const createDoctorMutation = useCreateDoctor();
 
   const handlePhoneChange = (value: string) => {
@@ -38,7 +49,15 @@ function AddDoctorDialog({ isOpen, onClose }: AddDoctorDialogProps) {
   };
 
   const handleSave = () => {
-    createDoctorMutation.mutate({ ...newDoctor }, { onSuccess: handleClose });
+    if (!uploadedImageUrl) return;
+
+    createDoctorMutation.mutate(
+      {
+        ...newDoctor,
+        imageUrl: uploadedImageUrl,
+      },
+      { onSuccess: handleClose },
+    );
   };
 
   const handleClose = () => {
@@ -51,33 +70,51 @@ function AddDoctorDialog({ isOpen, onClose }: AddDoctorDialogProps) {
       gender: "MALE",
       isActive: true,
     });
+    setImageFile(null);
+    setUploadedImageUrl("");
+    setImageLoadingState(false);
   };
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="sm:max-w-125">
+      <DialogContent className="sm:max-w-140">
         <DialogHeader>
           <DialogTitle>Add New Doctor</DialogTitle>
-          <DialogDescription>Add a new doctor to your practice.</DialogDescription>
+          <DialogDescription>
+            Add a new doctor to your practice.
+          </DialogDescription>
         </DialogHeader>
 
         <div className="grid gap-4 py-4">
+          <ImageUpload
+            imageFile={imageFile}
+            setImageFile={setImageFile}
+            imageLoadingState={imageLoadingState}
+            setUploadedImageUrl={setUploadedImageUrl}
+            setImageLoadingState={setImageLoadingState}
+          />
+
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="new-name">Name *</Label>
               <Input
                 id="new-name"
                 value={newDoctor.name}
-                onChange={(e) => setNewDoctor({ ...newDoctor, name: e.target.value })}
+                onChange={(e) =>
+                  setNewDoctor({ ...newDoctor, name: e.target.value })
+                }
                 placeholder="Dr. John Smith"
               />
             </div>
+
             <div className="space-y-2">
               <Label htmlFor="new-speciality">Speciality *</Label>
               <Input
                 id="new-speciality"
                 value={newDoctor.speciality}
-                onChange={(e) => setNewDoctor({ ...newDoctor, speciality: e.target.value })}
+                onChange={(e) =>
+                  setNewDoctor({ ...newDoctor, speciality: e.target.value })
+                }
                 placeholder="General Dentistry"
               />
             </div>
@@ -89,10 +126,13 @@ function AddDoctorDialog({ isOpen, onClose }: AddDoctorDialogProps) {
               id="new-email"
               type="email"
               value={newDoctor.email}
-              onChange={(e) => setNewDoctor({ ...newDoctor, email: e.target.value })}
+              onChange={(e) =>
+                setNewDoctor({ ...newDoctor, email: e.target.value })
+              }
               placeholder="doctor@example.com"
             />
           </div>
+
           <div className="space-y-2">
             <Label htmlFor="new-phone">Phone</Label>
             <Input
@@ -107,8 +147,10 @@ function AddDoctorDialog({ isOpen, onClose }: AddDoctorDialogProps) {
             <div className="space-y-2">
               <Label htmlFor="new-gender">Gender</Label>
               <Select
-                value={newDoctor.gender || ""}
-                onValueChange={(value) => setNewDoctor({ ...newDoctor, gender: value as Gender })}
+                value={newDoctor.gender}
+                onValueChange={(value) =>
+                  setNewDoctor({ ...newDoctor, gender: value as Gender })
+                }
               >
                 <SelectTrigger>
                   <SelectValue placeholder="Select gender" />
@@ -152,6 +194,9 @@ function AddDoctorDialog({ isOpen, onClose }: AddDoctorDialogProps) {
               !newDoctor.name ||
               !newDoctor.email ||
               !newDoctor.speciality ||
+              !imageFile ||
+              !uploadedImageUrl ||
+              imageLoadingState ||
               createDoctorMutation.isPending
             }
           >
