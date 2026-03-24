@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { MicIcon, CalendarIcon } from "lucide-react";
+import { SignUpButton } from "@clerk/nextjs";
 
 function CTA() {
   return (
@@ -23,42 +24,48 @@ function CTA() {
                 </div>
               </div>
 
-              {/* Heading */}
-              <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-                <span className="bg-linear-to-br from-foreground to-foreground/70 bg-clip-text text-transparent">
-                  Your dental health
-                </span>
-                <br />
-                <span className="bg-linear-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-                  journey starts here
-                </span>
-              </h2>
+              <div className="text-center lg:text-left">
+                {/* Heading */}
+                <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+                  <span className="bg-linear-to-br from-foreground to-foreground/70 bg-clip-text text-transparent">
+                    Your dental health
+                  </span>
+                  <br />
+                  <span className="bg-linear-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                    journey starts here
+                  </span>
+                </h2>
 
-              {/* Description */}
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Join 1,200+ patients who trust our AI for instant guidance and
-                personalized care.
-              </p>
+                {/* Description */}
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Join 1,200+ patients who trust our AI for instant guidance and
+                  personalized care.
+                </p>
+              </div>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
-              <Button
-                size="lg"
-                className="px-6 py-3 font-semibold bg-linear-to-r from-primary to-primary/90 hover:from-primary/95 hover:to-primary/85 shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl"
-              >
-                <MicIcon className="mr-2 h-4 w-4" />
-                Start free chat
-              </Button>
+              <SignUpButton mode="modal">
+                <Button
+                  size="lg"
+                  className="px-6 py-3 font-semibold bg-linear-to-r from-primary to-primary/90 hover:from-primary/95 hover:to-primary/85 shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl"
+                >
+                  <MicIcon className="mr-2 h-4 w-4" />
+                  Start free chat
+                </Button>
+              </SignUpButton>
 
-              <Button
-                size="lg"
-                variant="outline"
-                className="px-6 py-3 font-semibold border border-primary/20 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 rounded-xl"
-              >
-                <CalendarIcon className="mr-2 h-4 w-4" />
-                Book appointment
-              </Button>
+              <SignUpButton mode="modal">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="px-6 py-3 font-semibold border border-primary/20 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 rounded-xl"
+                >
+                  <CalendarIcon className="mr-2 h-4 w-4" />
+                  Book appointment
+                </Button>
+              </SignUpButton>
             </div>
           </div>
 

@@ -3,6 +3,8 @@ import MainActions from "@/components/dashboard/MainActions";
 import Navbar from "@/components/Navbar";
 import ActivityOverview from "@/components/dashboard/ActivityOverview";
 
+export const dynamic = "force-dynamic"
+
 const DashboardPage = () => {
   return (
     <>
